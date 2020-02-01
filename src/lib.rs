@@ -14,12 +14,15 @@ pub struct Perlin2D {
 
 #[wasm_bindgen]
 impl Perlin2D {
-    pub fn tick(&mut self, x: f64, y: f64) -> f64 {
-        return self.generator.get([x, y]);
+    pub fn get(&mut self, x: f64, y: f64) -> f64 {
+        self.generator.get([x, y])
+    }
+    pub fn get3(&mut self, x: f64, y: f64, z: f64) -> f64 {
+        self.generator.get([x, y, z])
     }
     pub fn new() -> Perlin2D {
-        return Perlin2D {
+        Perlin2D {
             generator: Perlin::new(),
-        };
+        }
     }
 }
